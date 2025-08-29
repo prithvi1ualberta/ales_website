@@ -111,26 +111,66 @@ p {
 .btn-faculty {
     background: linear-gradient(135deg, var(--primary-green), #15803d);
     color: var(--white);
-    padding: 16px 32px;
-    font-size: 1.1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 124, 65, 0.3);
-    transition: all 0.3s ease;
+    padding: 18px 44px;
+    font-size: 1.25rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 124, 65, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 12px;
     font-weight: 600;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-faculty:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 124, 65, 0.4);
-    background: linear-gradient(135deg, #15803d, var(--primary-green));
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 14px 30px rgba(0, 124, 65, 0.45);
+    background: linear-gradient(135deg, #0b8e4a, var(--primary-green));
 }
 
 .btn-faculty i {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
+}
+
+/* Interactive shine effect */
+.btn-faculty::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+    transform: skewX(-20deg);
+}
+
+.btn-faculty:hover::before {
+    animation: buttonShine 0.9s ease forwards;
+}
+
+@keyframes buttonShine {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+/* Press/active and focus states */
+.btn-faculty:active {
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 8px 20px rgba(0, 124, 65, 0.35);
+}
+
+.btn-faculty:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 124, 65, 0.25), 0 10px 24px rgba(0, 124, 65, 0.45);
+}
+
+/* Subtle icon motion */
+.btn-faculty:hover i {
+    transform: translateX(2px) rotate(-4deg);
+    transition: transform 0.25s ease;
 }
 
 /* Header */
