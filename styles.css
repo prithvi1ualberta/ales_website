@@ -228,6 +228,22 @@ p {
     width: 100%;
 }
 
+/* Active page highlighting */
+.nav-desktop a.active {
+    color: var(--primary-gold);
+}
+.nav-desktop a.active::after {
+    width: 100%;
+}
+
+.header.scrolled .nav-desktop a.active {
+    color: var(--primary-green);
+}
+.header.scrolled .nav-desktop a.active::after {
+    background-color: var(--primary-green);
+    width: 100%;
+}
+
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -261,6 +277,12 @@ p {
 
 .nav-mobile a:hover {
     background-color: var(--light-gray);
+}
+
+.nav-mobile a.active {
+    background-color: rgba(0, 124, 65, 0.08);
+    color: var(--primary-green);
+    font-weight: 700;
 }
 
 /* Hero Section */

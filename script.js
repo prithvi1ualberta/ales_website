@@ -11,6 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Set active nav link based on current page
+    (function setActiveNav() {
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        const links = document.querySelectorAll('.nav-desktop a, .nav-mobile a');
+        links.forEach(a => {
+            const href = a.getAttribute('href');
+            if (!href) return;
+            // Normalize to filename only for comparison
+            const hrefFile = href.split('/').pop();
+            if (hrefFile === path) {
+                a.classList.add('active');
+            } else if (path === '' && hrefFile === 'index.html') {
+                a.classList.add('active');
+            }
+        });
+    })();
+
     // Header scroll effect
     if (header) {
         window.addEventListener('scroll', function() {
