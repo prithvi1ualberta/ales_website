@@ -1617,6 +1617,116 @@ section {
     padding: 5rem 0;
 }
 
+.event-heading {
+    text-align: center;
+    margin: 0.5rem auto 1rem;
+    font-size: 2rem;
+    color: var(--dark-gray);
+    letter-spacing: 0.3px;
+    display: inline-block;
+    width: 100%;
+}
+
+.event-heading i {
+    color: var(--primary-gold);
+    margin-right: 8px;
+}
+
+.event-heading .accent {
+    color: var(--primary-green);
+}
+
+.event-heading::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    margin: 10px auto 0;
+    background: linear-gradient(90deg, var(--primary-gold), var(--primary-green));
+    border-radius: 2px;
+}
+
+/* Static BBQ gallery styles removed in favor of slideshow */
+
+.news-slideshow {
+    position: relative;
+    max-width: 100%;
+    height: 620px;
+    margin: 2rem auto 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    background: #000;
+}
+
+.news-slideshow .slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.news-slideshow .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.news-slideshow .slide.active {
+    opacity: 1;
+}
+
+.news-slideshow .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slideshow-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.slideshow-nav:hover { background: rgba(0,0,0,0.6); }
+.slideshow-nav.prev { left: 12px; }
+.slideshow-nav.next { right: 12px; }
+
+.slideshow-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.slideshow-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.6);
+    cursor: pointer;
+}
+
+.slideshow-dots button.active {
+    background: var(--primary-gold);
+}
+
 .featured-news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
